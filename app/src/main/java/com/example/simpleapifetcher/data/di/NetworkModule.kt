@@ -28,7 +28,6 @@ class NetworkModule {
     }
 
     @Provides
-    @Named("auth_retrofit")
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.bitbucket.org")

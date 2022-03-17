@@ -9,13 +9,15 @@ import dagger.Provides
 import retrofit2.Retrofit
 
 @Module(includes = [NetworkModule::class])
-abstract class ApiModule {
+class ApiModule {
 
     @Provides
     fun bindApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 
-    @Binds
-    abstract fun bindRepository(repositoryImpl: ReposRepositoryImpl): ReposRepository
+    @Provides
+    fun bindRepository(repositoryImpl: ReposRepositoryImpl): ReposRepository {
+        return repositoryImpl
+    }
 }
