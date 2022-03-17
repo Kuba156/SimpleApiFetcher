@@ -1,12 +1,12 @@
 package com.example.simpleapifetcher
 
-import android.content.Context
 import com.example.simpleapifetcher.presentation.di.AppComponent
 import com.example.simpleapifetcher.presentation.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import dagger.android.HasAndroidInjector
 
-class SimpleApiFetcherApplication : DaggerApplication() {
+class SimpleApiFetcherApplication : DaggerApplication(), HasAndroidInjector {
 
     private lateinit var appComponent: AppComponent
 
@@ -16,4 +16,6 @@ class SimpleApiFetcherApplication : DaggerApplication() {
             .build()
         return appComponent
     }
+
+
 }

@@ -13,19 +13,18 @@ class MainViewModel @Inject constructor(
     val schedulers: SchedulersProvider
 ) : ViewModel() {
 
-    val shareLiveData = MutableLiveData<UserRepository>()
+    val userRepoLiveData = MutableLiveData<UserRepository>()
     protected val compositeDisposable = CompositeDisposable()
 
     fun getShareData() {
         getReposUseCase.execute()
             .subscribeOn(schedulers.io())
             .subscribe({
-                it?.let {
-                    shareLiveData.postValue(it)
+                it.let {
+                    userRepoLiveData.postValue(it)
                 }
-            },{
-
-            }).let {
+            }, {}
+            ).let {
                 compositeDisposable.add(it)
             }
     }
