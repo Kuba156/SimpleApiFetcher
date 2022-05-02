@@ -8,12 +8,11 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 class ReposRepositoryImpl @Inject constructor(
-    private val apiService: ApiService, // remember this is an interface
+    private val apiService: ApiService,
     private val userRepositoryMapper: UserRepositoryMapper
 ) : ReposRepository {
-    override fun getRepos(): Single<UserRepository> {
-        return apiService.getRepos().map {
-            userRepositoryMapper.toUserRepository(it)
-        }
+    override fun getRepos(): Single<List<UserRepository>> {
+        val repos = apiService.getRepos()
+        return userRepositoryMapper.toUserRepository(repos)
     }
 }

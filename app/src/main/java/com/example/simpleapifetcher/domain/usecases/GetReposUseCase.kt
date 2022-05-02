@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 class GetReposUseCase @Inject constructor(
     private val reposRepository: ReposRepository
-) : SingleUseCase<UserRepository> {
+) : SingleUseCase<List<UserRepository>> {
 
-    override fun execute(): Single<UserRepository> {
+    override fun execute(): Single<List<UserRepository>> {
         return reposRepository.getRepos()
     }
 }

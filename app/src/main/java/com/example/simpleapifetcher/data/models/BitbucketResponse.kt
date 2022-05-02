@@ -1,51 +1,55 @@
 package com.example.simpleapifetcher.data.models
 import com.google.gson.annotations.SerializedName
 
+data class BitbucketResponse(
+    @SerializedName("values")
+    var values: Array<UserRepository>
+)
 
-data class UserRepositoryDTO(
+data class UserRepository(
     @SerializedName("name")
-    val name: String?,
+    var name: String?,
     @SerializedName("owner")
-    val owner: Owner?,
+    var owner: Owner?,
     @SerializedName("description")
-    val description: String?
+    var description: String?
 )
 
 data class Owner(
     @SerializedName("account_id")
-    val accountId: String?,
+    var accountId: String?,
     @SerializedName("display_name")
-    val displayName: String?,
+    var displayName: String?,
     @SerializedName("links")
-    val links: Links?,
+    var links: Links?,
     @SerializedName("nickname")
-    val nickname: String?,
+    var nickname: String?,
     @SerializedName("type")
-    val type: String?,
+    var type: String?,
     @SerializedName("uuid")
-    val uuid: String?
+    var uuid: String?
 )
 
 data class Links(
     @SerializedName("avatar")
-    val avatar: Avatar?,
+    var avatar: Avatar?,
     @SerializedName("html")
-    val html: Html?,
+    var html: Html?,
     @SerializedName("self")
-    val self: Self?
+    var self: Self?
 )
 
 data class Avatar(
     @SerializedName("href")
-    val href: String?
+    var href: String?
 )
 
 data class Html(
     @SerializedName("href")
-    val href: String?
+    var href: String?
 )
 
 data class Self(
     @SerializedName("href")
-    val href: String?
+    var href: String?
 )
